@@ -18,7 +18,7 @@ const Projects = ({}: Props) => {
         Projects
       </h3>
       
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-track-gray-400/20 scrollbar-thumb-amber-400/80 scrollbar-thin">
         {projects.map((project, i) => (
           <div
             key={project}
@@ -27,7 +27,7 @@ const Projects = ({}: Props) => {
             <motion.img
               initial={{y: -300, opacity: 0}}
               whileInView={{opacity: 1, y: 0}}
-              transition={{delay: .5,duration: 1.2}}
+              transition={{delay: .5,duration: .7}}
               viewport={{once: true}}
               className='max-h-40'
               src="https://coryrylan.com/assets/images/posts/types/typescript.png"

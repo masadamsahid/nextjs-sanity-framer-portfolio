@@ -14,7 +14,7 @@ const Experience = () => {
         Experience
       </h3>
       
-      <div className="w-full flex space-x-5 overflow-x-scroll snap-x snap-mandatory">
+      <div className="w-full flex space-x-5 overflow-x-scroll snap-x snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-amber-400/80 scrollbar-thin">
         {/* Experience Cards */}
         <ExperienceCard/>
         <ExperienceCard/>
