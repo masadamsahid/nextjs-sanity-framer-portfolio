@@ -34,7 +34,7 @@ const ContactMe = ({pageInfo}: Props) => {
       <div className="flex flex-col space-y-5">
         <h4 className="text-2xl text-center">
           I have got just what you need.{" "}
-          <span className="underline decoration-[#F7AB0A]/50">Let's Talk.</span>
+          <span className="underline decoration-[#F7AB0A]/50">Let&quot;s Talk.</span>
         </h4>
         
         <div className="space-y-5">
