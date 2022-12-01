@@ -1,11 +1,13 @@
 import React from 'react';
 import {motion} from "framer-motion";
+import {Project} from "../typings";
+import {urlFor} from "../sanity";
 
-type Props = {}
+type Props = {
+  projects: Project[];
+}
 
-const projects = [1, 2, 3, 4, 5];
-
-const Projects = ({}: Props) => {
+const Projects = ({projects}: Props) => {
   return (
     <motion.div
       initial={{opacity: 0}}
@@ -18,20 +20,22 @@ const Projects = ({}: Props) => {
         Projects
       </h3>
       
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-track-gray-400/20 scrollbar-thumb-amber-400/80 scrollbar-thin">
+      <div
+        className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-track-gray-400/20 scrollbar-thumb-amber-400/80 scrollbar-thin">
         {projects.map((project, i) => (
           <div
-            key={project}
+            title={project.title}
+            key={project._id}
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen"
           >
             <motion.img
-              initial={{y: -300, opacity: 0}}
+              initial={{y: -200, opacity: 0}}
               whileInView={{opacity: 1, y: 0}}
-              transition={{delay: .5,duration: .7}}
+              transition={{delay: .5, duration: .7}}
               viewport={{once: true}}
               className='max-h-40'
-              src="https://coryrylan.com/assets/images/posts/types/typescript.png"
-              alt=""
+              src={urlFor(project.image).url()}
+              alt={project.title}
             />
             
             <div className="space-y-10 px-0 md:px-10 max-w-2xl">
@@ -40,9 +44,20 @@ const Projects = ({}: Props) => {
                 Clone
               </h4>
               
+              <div className="flex items-center justify-center gap-3">
+                {project.technologies.map((tech) => (
+                  <img
+                    key={tech._id}
+                    src={urlFor(tech.image).url()}
+                    alt={tech.title}
+                    title={tech.title}
+                    className="h-5 w-5 lg:h-10 lg:w-10 object-cover"
+                  />
+                ))}
+              </div>
+              
               <p className="text-sm text-center md:text-left">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, dicta dolorem eaque eum, eveniet
-                expedita magnam neque nihil non obcaecati sapiente sequi sit totam voluptas!
+                {project.summary}
               </p>
             </div>
           </div>

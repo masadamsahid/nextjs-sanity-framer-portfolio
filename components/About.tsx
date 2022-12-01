@@ -1,9 +1,13 @@
 import React from 'react';
 import {motion} from "framer-motion";
+import {PageInfo} from "../typings";
+import {urlFor} from "../sanity";
 
-type Props = {}
+type Props = {
+  pageInfo: PageInfo;
+}
 
-const About = ({}: Props) => {
+const About = ({pageInfo}: Props) => {
   return (
     <motion.div
       initial={{opacity: 0}}
@@ -18,7 +22,7 @@ const About = ({}: Props) => {
         initial={{y: -200, opacity: 0}}
         whileInView={{y: 0, opacity: 1}}
         transition={{duration: 1.2}}
-        src="https://img.freepik.com/premium-vector/howling-wolf-standing-hill-with-panoramic-landscape-mountains-forest-beautiful-sunset_480900-263.jpg?w=740"
+        src={urlFor(pageInfo.profilePic).url()}
         className=" flex-shrink-0 -mb-20 md:mb-0 w-36 h-36 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[300px] xl:h-[360px]"
       />
       
@@ -27,9 +31,7 @@ const About = ({}: Props) => {
           Here is a <span className="underline decoration-[#F7AB0A]/50">little</span> background
         </h4>
         <p className="text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, asperiores autem beatae commodi cupiditate
-          deserunt dicta dignissimos, dolor earum et eum id illum impedit in ipsa magni neque nostrum nulla odio quam
-          quas quidem recusandae sapiente sequi tempora velit voluptates.
+          {pageInfo.backgroundInformation}
         </p>
       </div>
     

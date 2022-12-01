@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+sanity/node_modules
+
 # testing
 /coverage
 
@@ -38,3 +40,7 @@ next-env.d.ts
 # IDEs
 .idea
 .vscode
+
+# envs
+.env
+.env*
